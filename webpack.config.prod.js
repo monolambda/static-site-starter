@@ -24,8 +24,8 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ejs$/,
-                loader: 'html-loader'
+                test: /\.pug$/,
+                loader: ['html-loader', 'pug-html-loader']
             },
             {
                 test: /\.sass$/,
@@ -105,7 +105,7 @@ module.exports = {
                 let o2 = orders.indexOf(c2.names[0])
                 return o1 - o2
             },
-            template: './src/index.ejs',
+            template: './src/index.pug',
             inject: true
         }),
         new HtmlWebpackPlugin({
@@ -119,7 +119,7 @@ module.exports = {
                 return o1 - o2
             },
             filename: 'another-page/another-page.html',
-            template: './src/templates/another-page.ejs'
+            template: './src/templates/another-page.pug'
         }),
         new ExtractTextPlugin({
             filename: 'css/[name].bundle.css',
